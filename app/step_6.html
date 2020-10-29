@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="google" content="notranslate" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+    />
+    <title>Step 6</title>
+    <link rel="stylesheet" href="js/keyboard/keyboard.min.css" />
+    <link rel="stylesheet" href="js/keyboard/keyboard.css" />
+    <link rel="stylesheet" href="./css/style.min.css" />
+    <link href="fonts/Klein.otf" rel="stylesheet">
+  </head>
+
+  <body>
+    <main class="main-contact qr-page bg-5">
+      <div class="grid-position">
+        <div class="grid-position-top">
+          <div class="logo">
+            <img src="img/logo.png" alt="logo" />
+          </div>
+          <div class="head">THANK YOU FOR PARTICIPATING!</div>
+          <p class="head-text">Enter your name and email if you would like to receive further information, and claim your product.</p>
+          <form action="step_7.html" class="participating-form">
+            <div class="inputs-group">
+              <div class="input-label left">
+                <input type="text" name="first_name" type="text" id="first_name" >
+                <label for="first_name">First name</label>
+              </div>
+              <div class="input-label">
+                <input type="text" name="last_name" type="text" id="last_name" >
+                <label for="last_name">Last name</label>
+              </div>
+            </div>
+            <div class="inputs-group email">
+              <div class="input-label email">
+                <input type="email" id="email" name="email" >
+                <label for="email">Email</label>
+              </div>
+            </div>
+            <div class="agree-wrapper">
+              <div class="agree-block">
+                <p class="agree">Please confirm that you agree to our <span>Terms of Use</span> and our <span>Privacy Policy</span> by ticking here</p>
+                <div class="wrap-checkbox">
+                  <input type="checkbox" name="news" class="checkbox" id="news" />
+                  <label for="news"></label>
+                </div>
+              </div>
+              <div class="agree-block">
+                <p class="agree">Please confirm that you agree to receive marketing communications about Calvin Klien offers, news and events by emails </p>
+                <div class="wrap-checkbox">
+                  <input type="checkbox" name="checkbox" class="checkbox" id="terms" />
+                  <label for="terms"></label>
+                </div>
+              </div>
+            </div>
+            <button class="claim-button" type="submit">Claim my sample</button>
+          </form>
+        </div>
+        
+        <div class="grid-position--bottom">
+          <div class="keyboard"></div>
+        </div>
+      </div>
+
+    </main>
+
+    <script src="js/libs.min.js"></script>
+    <script src="js/keyboard/jquery.keyboard.min.js"></script>
+    <script src="js/scripts.min.js"></script>
+  </body>
+</html>
