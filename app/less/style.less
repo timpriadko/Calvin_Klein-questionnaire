@@ -54,29 +54,13 @@ h1 {
     align-items: center;
     justify-content: center;
   }
-  &.default {
-    background: #979797;
-  }
-  &-border-one {
-    border-width: 0;
-    border-bottom-width: 6px;
-    &:nth-child(2n) {
-      border-bottom-width: 0;
-      border-top-width: 6px;
+  &.disabled {
+    background: #979797 !important;
+
+    &:hover {
+      background: #979797!important;
+      color: #eec1cb!important;
     }
-  }
-  &.big {
-    display: flex;
-    max-width: 570px;
-  }
-  &.middle {
-    display: flex;
-    max-width: 358px;
-  }
-  &.small {
-    display: flex;
-    max-width: 236px;
-    margin: 0 auto;
   }
 }
 .hide-desktop {
@@ -138,16 +122,6 @@ h1 {
   }
   &.bg-1 {
     background-color: #e9e9e8;
-    // ::after {
-    //   content: '';
-    //   background: url(../img/bg.jpg) no-repeat top center/contain;
-    //   height: 100%;
-    //   width: 100%;
-    //   position: absolute;
-    //   top: 0;
-    //   z-index: -1;
-    //   background-color: #e9e9e8;
-    // }
     .grid-position--top {
       background: url(../img/bg.jpg) no-repeat bottom/contain;
       height: 100%;
@@ -438,6 +412,10 @@ h1 {
       &.email {
         margin-top: 12px;
       }
+      input:focus{
+        outline: none;
+        box-shadow: none;
+      }
     }
     .inputs-group.email {
       .input-label.email {
@@ -470,6 +448,21 @@ h1 {
       letter-spacing: 1.83077px;
       color: #6D6D6D;
       text-align: start;
+
+      &.tap-to {
+        color: #313131;
+        font-family: Klein;
+        font-size: 39px;
+        line-height: 50px;
+        letter-spacing: 5px;
+        text-transform: uppercase;
+        border: 2px solid #313131;
+        width: 100%;
+        max-width: 625px;
+        padding: 30px 0;
+        text-align: center;
+        background-color: #e9e9e8;
+      }
     }
 
     input {
@@ -549,7 +542,6 @@ h1 {
     font-size: 18px;
     line-height: 30px;
     color: #828282;
-    // padding-right: 48px;
 
     span {
       text-decoration: underline;
@@ -946,7 +938,6 @@ input {
 
 .ui-widget-content {
   background: #313131;
-  // backdrop-filter: blur(4px);
 }
 
 .ui-keyboard-button {
@@ -988,90 +979,40 @@ input {
   }
 }
 
-.modal-wrap {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.25);
-  z-index: 1000;
-}
-
-.modal-wrap.show {
-  display: block;
-}
-
-.modal {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  justify-content: space-between;
-  max-height: 800px;
-  width: 800px;
-  margin: 40px auto;
-  padding: 20px;
-  background-color: #fff;
-  z-index: 2;
-}
-
-.modal__header {
-  font-size: 32px;
-  text-align: center;
-  padding-bottom: 20px;
-}
-
-.modal__body {
-  flex: 1 1 auto;
-  overflow: auto;
-  color: #000;
-}
-
-.modal__text {
-  font-size: 19px;
-  line-height: 1.25;
-  margin-top: 0;
-  margin-bottom: 20px;
-  &:last-child {
-    margin-bottom: 0;
+.required {
+  position: relative;
+  &::after {
+      content: 'This field is required';
+      position: absolute;
+      left: 0;
+      bottom: -15px;
+      font-size: 11px;
+      color: #fa5916;
   }
 }
 
-.modal__footer {
-  padding-top: 20px;
-  text-align: center;
-}
-
-.modal__row {
-  display: flex;
-  align-items: flex-start;
-}
-
-.modal__number {
-  flex: 0 0 100px;
-
-  &_header {
-    font-weight: bold;
+.invalid-email {
+  position: relative;
+  &::after {
+      content: 'Invalid email address';
+      position: absolute;
+      left: 0;
+      bottom: -15px;
+      font-size: 11px;
+      color: #fa5916;
   }
 }
 
-.modal__text-col {
-  &_header {
-    font-weight: bold;
+.invalid-confirm-email {
+  position: relative;
+  &::after {
+      content: 'Email does not match';
+      position: absolute;
+      left: 0;
+      bottom: -15px;
+      font-size: 11px;
+      color: #fa5916;
   }
-}
-
-.modal_btn {
-  display: inline-block;
-  padding: 20px 40px;
-  min-width: 300px;
-  color: #fff;
-  background-color: #292929;
-  font-size: 24px;
-  line-height: 1;
-  text-transform: uppercase;
-  text-align: center;
 }
 
 .main-contact {
@@ -1908,25 +1849,30 @@ input {
         color: #828282;
       }
     }
-    .claim-button {
-      text-transform: uppercase;
-      height: unset;
-      width: unset;
-      border: 2px solid #313131;
-      background-color: #e9e9e8;
-      margin: 0 auto;
-      font-family: Klein;
-      font-size: 18px;
-      line-height: 50px;
-      padding: 0 10px;
-      text-align: center;
-      letter-spacing: 5px;
-      color: #313131;
-      display: flex;
-      margin-top: 15px;
-      justify-content: center;
-      align-items: center;
-    }
+  }
+
+  .main-contact .participating-form label.tap-to,
+  .bg-5 .claim-button {
+    text-transform: uppercase;
+    height: unset;
+    width: unset;
+    border: 2px solid #313131;
+    background-color: #e9e9e8;
+    margin: 0 auto;
+    font-family: Klein;
+    font-size: 18px;
+    padding: 0 10px;
+    text-align: center;
+    color: #313131;
+    display: flex;
+    margin-top: 15px;
+    justify-content: center;
+    align-items: center;
+    max-width: 278px;
+    letter-spacing: 4px;
+    line-height: 100%;
+    font-weight: normal;
+    min-height: 54px;
   }
 
   &.bg-6 {
@@ -1949,3 +1895,5 @@ input {
     transform: translateY(18.5%);
   }
 }
+
+@import url(./modal.less);

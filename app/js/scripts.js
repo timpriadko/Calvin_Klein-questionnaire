@@ -55,57 +55,57 @@ $(document).ready(function () {
   /* custom keyboard layouts */
 
 
-if ($('#email').length > 0) {
-  if (window.innerWidth > 560) {
-    // init https://mottie.github.io/Keyboard/
-    $('#first_name, #last_name').keyboard({
-      layout: 'custom',
-      position: {
-        // null = attach to input/textarea;
-        // use $(sel) to attach elsewhere
-        of: '#email',
-        my: 'center top',
-        // at: 'center top',
-        // used when "usePreview" is false
-        at2: 'center bottom'
-      },
-      usePreview: false,
-      customLayout: {
-        normal: normalLayout,
-        // shift: shiftLayout,
-        // alt: altLayout,
-        // 'alt-shift': altShitlayout,
-      },
-      visible: function (e, keyboard) {
-        keyboard.$keyboard.find('.ui-keyboard-accept').text('Enter')
-      },
-      autoAccept: true,
-      appendTo: $('.keyboard'),
-    });
+  if ($('#email').length > 0) {
+    if (window.innerWidth > 560) {
+      // init https://mottie.github.io/Keyboard/
+      $('#first_name, #last_name').keyboard({
+        layout: 'custom',
+        position: {
+          // null = attach to input/textarea;
+          // use $(sel) to attach elsewhere
+          of: '#email',
+          my: 'center top',
+          // at: 'center top',
+          // used when "usePreview" is false
+          at2: 'center bottom'
+        },
+        usePreview: false,
+        customLayout: {
+          normal: normalLayout,
+          // shift: shiftLayout,
+          // alt: altLayout,
+          // 'alt-shift': altShitlayout,
+        },
+        visible: function (e, keyboard) {
+          keyboard.$keyboard.find('.ui-keyboard-accept').text('Enter')
+        },
+        autoAccept: true,
+        appendTo: $('.keyboard'),
+      });
 
-    $('#email').keyboard({
-      layout: 'custom',
-      position: {
-        of: null,
-        my: 'center top',
-        // at: 'center top',
-        at2: 'center bottom'
-      },
-      usePreview: false,
-      customLayout: {
-        normal: normalLayout,
-        // shift: shiftLayout,
-        // alt: altLayout,
-        // 'alt-shift': altShitlayout,
-      },
-      visible: function (e, keyboard) {
-        keyboard.$keyboard.find('.ui-keyboard-accept').text('Enter')
-      },
-      autoAccept: true,
-      appendTo: $('.keyboard'),
-    });
+      $('#email').keyboard({
+        layout: 'custom',
+        position: {
+          of: null,
+          my: 'center top',
+          // at: 'center top',
+          at2: 'center bottom'
+        },
+        usePreview: false,
+        customLayout: {
+          normal: normalLayout,
+          // shift: shiftLayout,
+          // alt: altLayout,
+          // 'alt-shift': altShitlayout,
+        },
+        visible: function (e, keyboard) {
+          keyboard.$keyboard.find('.ui-keyboard-accept').text('Enter')
+        },
+        autoAccept: true,
+        appendTo: $('.keyboard'),
+      });
+    }
   }
-}
 
   //validate email
   function isEmail(email) {
@@ -128,10 +128,10 @@ if ($('#email').length > 0) {
     text_inputs.each(function () {
       if ($(this).val() === '') {
         text_inputs_filled_arr.push(false)
-        $(this).closest('.form-group').addClass('required');
+        $(this).closest('.input-label').addClass('required');
       } else {
         text_inputs_filled_arr.push(true)
-        $(this).closest('.form-group').removeClass('required');
+        $(this).closest('.input-label').removeClass('required');
       }
     })
 
@@ -211,7 +211,7 @@ if ($('#email').length > 0) {
   // product page functionality
   var answer_inputs = $('input[data-answer="answer"]');
   var question = $('input[data-question="question"]').closest('form').find('input[name="question"]').val();
-  var last_question =  $('input[data-last="last_question"]');
+  var last_question = $('input[data-last="last_question"]');
   var q_1_a = 'yes';
   var q_1_b = 'no';
   var q_2_1 = 'Breakouts';
@@ -230,28 +230,28 @@ if ($('#email').length > 0) {
       console.log(answer_1, answer_2);
 
       if (answer_1 === q_1_a && answer_2 === q_2_1) {
-        window.open("step_4-p5.html",'_self');
+        window.open("step_4-p5.html", '_self');
       }
       if (answer_1 === q_1_a && answer_2 === q_2_2) {
-        window.open("step_4-p4.html",'_self');
+        window.open("step_4-p4.html", '_self');
       }
       if (answer_1 === q_1_a && answer_2 === q_2_3) {
-        window.open("step_4-p2.html",'_self');
+        window.open("step_4-p2.html", '_self');
       }
       if (answer_1 === q_1_a && answer_2 === q_2_4) {
-        window.open("step_4-p1.html",'_self');
+        window.open("step_4-p1.html", '_self');
       }
       if (answer_1 === q_1_b && answer_2 === q_2_1) {
-        window.open("step_4-p5.html",'_self');
+        window.open("step_4-p5.html", '_self');
       }
       if (answer_1 === q_1_b && answer_2 === q_2_2) {
-        window.open("step_4-p3.html",'_self');
+        window.open("step_4-p3.html", '_self');
       }
       if (answer_1 === q_1_b && answer_2 === q_2_3) {
-        window.open("step_4-p2.html",'_self');
+        window.open("step_4-p2.html", '_self');
       }
       if (answer_1 === q_1_b && answer_2 === q_2_4) {
-        window.open("step_4-p1.html",'_self');
+        window.open("step_4-p1.html", '_self');
       }
     } else {
       $(this).closest('form').submit();
